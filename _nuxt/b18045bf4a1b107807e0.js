@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{282:function(o){o.exports=JSON.parse('{"日別":"diário","累計":"total","実績値":"Valor real","累計値":"Valor acumulado","前日比":"anterior"}')}}]);
