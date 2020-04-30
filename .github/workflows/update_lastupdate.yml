@@ -3,17 +3,19 @@ name: update lastupdate
 on:
   push:
     branches:
-      - master
+      - development
+    paths:
+      - data/*
 
 jobs:
-  deploy:
+  update:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
       - name: Commit files
         run: |
-          D=$(date '+%Y-%m-%d %H:%M') && sed -i data/data.json -e "s/\"lastUpdate\"\:.*/\"lastUpdate\"\:\ \"${D//-/\\\/}\",/"
+          D=$(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M') && sed -i data/data.json -e "s/\"lastUpdate\"\:.*/\"lastUpdate\"\:\ \"${D//-/\\\/}\",/"
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/data.json
@@ -22,5 +24,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+          branch: development
           force: true
