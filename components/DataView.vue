@@ -17,15 +17,15 @@
       <div class="DataView-Footer">
         <div class="Footer-Left">
           <div>
-            <a class="Permalink" :href="fromlink()">
-              {{ $t('出典:新型コロナウイルス感染症について(新潟県)') }}
-            </a>
+            <a class="Permalink" :href="fromlink()">{{
+              $t('出典:新型コロナウイルス感染症について(新潟県)')
+            }}</a>
           </div>
           <div>
             <a class="Permalink" :href="permalink()">
-              <time :datetime="formattedDate">
-                {{ $t('{date} 更新', { date }) }}
-              </time>
+              <time :datetime="formattedDate">{{
+                $t('{date} 更新', { date })
+              }}</time>
             </a>
           </div>
         </div>
@@ -33,9 +33,7 @@
         <div v-if="this.$route.query.embed != 'true'" class="Footer-Right">
           <div v-if="displayShare" class="DataView-Share-Buttons py-2">
             <div class="Close-Button">
-              <v-icon @click="closeShareMenu">
-                mdi-close
-              </v-icon>
+              <v-icon @click="closeShareMenu">mdi-close</v-icon>
             </div>
 
             <h4>{{ $t('埋め込み用コード') }}</h4>
@@ -45,9 +43,8 @@
                 v-if="isCopyAvailable()"
                 class="EmbedCode-Copy"
                 @click="copyEmbedCode"
+                >far fa-clipboard</v-icon
               >
-                far fa-clipboard
-              </v-icon>
               {{ graphEmbedValue }}
             </div>
 
@@ -86,9 +83,7 @@
     </div>
 
     <div v-if="showOverlay" class="overlay">
-      <div class="overlay-text">
-        {{ $t('埋め込みコードをコピーしました') }}
-      </div>
+      <div class="overlay-text">{{ $t('埋め込みコードをコピーしました') }}</div>
     </div>
   </v-card>
 </template>
